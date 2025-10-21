@@ -4,12 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b0c" />
-  <title>NodeShort｜Xem phim nhận Xu – Nạp điện thoại miễn phí</title>
-  <meta name="description" content="NodeShort - Sự kiện web chính thức: Xem phim nhận Xu, DP, Kim Cương & NFT. Trải nghiệm thuần web, tối ưu cho quảng cáo Facebook." />
-  <!-- Open Graph -->
+  <title>NodeShort｜Mời bạn bè xem phim, nạp thoại miễn phí</title>
+  <meta name="description" content="Sự kiện Web: Mời bạn bè xem phim, tích Xu/DP, nhận thẻ nạp điện thoại. Web thuần, tối ưu cho quảng cáo Facebook." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NodeShort｜Xem phim nhận Xu – Nạp điện thoại miễn phí" />
-  <meta property="og:description" content="Xem phim yêu thích, tự động nhận Xu, DP, Kim Cương; Giải trí cũng là đầu tư." />
+  <meta property="og:title" content="NodeShort｜Mời bạn bè xem phim, nạp thoại miễn phí" />
+  <meta property="og:description" content="Xem phim, tích Xu/DP, nhận quà; giải trí cũng là đầu tư." />
   <meta property="og:image" content="./assets/nodeshort-og-1200x630.png" />
   <meta property="og:url" content="https://www.nodeshort.com/h5/#/?code=9HKKIP" />
 
@@ -19,14 +18,14 @@
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','855402777027838'); fbq('track','PageView');
+  fbq('init','855402777027838');fbq('track','PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=855402777027838&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root{--bg:#0b0b0c;--card:#131316;--muted:#a6a8ad;--text:#f3f4f6;--gold:#efb21a;--accent:#e9a700;--brand:#ffd36b;--line:#212227;--shadow:0 10px 30px rgba(0,0,0,.35);--btn-fg:#1a1a1a;}
-    :root[data-theme="light"]{--bg:#ffffff;--card:#ffffff;--muted:#5b5f66;--text:#121316;--gold:#efb21a;--accent:#e9a700;--brand:#ffcc5d;--line:#e9eaee;--shadow:0 10px 30px rgba(0,0,0,.08);--btn-fg:#121316;}
+    :root{--bg:#0b0b0c;--card:#131316;--muted:#a6a8ad;--text:#f3f4f6;--gold:#efb21a;--accent:#e9a700;--brand:#ffd36b;--line:#212227;--shadow:0 10px 30px rgba(0,0,0,.35);--btn-fg:#1a1a1a}
+    :root[data-theme="light"]{--bg:#ffffff;--card:#ffffff;--muted:#5b5f66;--text:#121316;--brand:#ffcc5d;--line:#e9eaee;--shadow:0 10px 30px rgba(0,0,0,.08);--btn-fg:#121316}
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"PingFang SC","Microsoft Yahei",sans-serif;line-height:1.55;overflow-x:hidden}
     img{display:block;max-width:100%}
@@ -34,14 +33,31 @@
     .container{width:min(1120px,100%);margin-inline:auto;padding:0 16px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;background:color-mix(in oklch,var(--bg) 90%,transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+    header{position:sticky;top:0;z-index:50;background:color-mix(in oklch, var(--bg) 90%, transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center}
     .brand img{height:80px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(135deg,var(--brand),var(--accent));color:var(--btn-fg);font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition:.2s transform}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:10px;padding:10px 12px;background:linear-gradient(135deg,var(--brand),var(--accent));color:var(--btn-fg);font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition:.2s transform;white-space:nowrap}
     .btn:hover{transform:translateY(-2px)}
     .btn.secondary{background:transparent;color:var(--text);border:1px solid var(--line)}
     .theme-toggle{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid var(--line);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .actions{display:flex;gap:10px;align-items:center}
+
+    /* compact on small screens */
+    @media(max-width:640px){
+      header .nav{flex-wrap:wrap}
+      .brand img{height:60px}
+      .actions{flex:1 1 100%;padding-top:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:8px}
+      .actions .btn{padding:8px 10px;font-size:12px;border-radius:8px}
+      .theme-toggle{padding:6px 8px}
+    }
+    @media(max-width:480px){
+      .actions .label{display:none}
+      .actions .btn,.actions .theme-toggle{padding:6px 8px;min-width:40px}
+      .actions .icon{font-size:16px;margin:0}
+    }
+    header.shrink .nav{padding:8px 0}
+    header.shrink .brand img{height:50px}
 
     /* Hero */
     .hero{padding:56px 0 28px;background:radial-gradient(60% 70% at 70% 0%, color-mix(in oklch, var(--brand) 30%, transparent), transparent 65%)}
@@ -70,7 +86,7 @@
     .idx{background:color-mix(in oklch, var(--line) 60%, var(--bg));border-radius:8px;min-width:28px;text-align:center;color:var(--muted)}
     .hr{height:1px;background:var(--line);margin:18px 0}
 
-    /* Carousel — one image per view */
+    /* Carousel */
     .carousel{position:relative;overflow:hidden;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow);width:100%;max-width:420px;margin:auto}
     .slides{display:flex;transition:transform .5s ease}
     .slides img{flex:0 0 100%;width:100%;height:100%;object-fit:cover}
@@ -93,11 +109,11 @@
       <div class="brand">
         <img src="./assets/nodeshort-logo.png" alt="NodeShort Logo" loading="lazy" decoding="async">
       </div>
-      <div style="display:flex;gap:10px;align-items:center">
-        <button id="themeToggle" class="theme-toggle" aria-label="Đổi giao diện">🌙/☀️ Chủ đề</button>
-        <a href="https://www.nodeshort.com/h5/#/?code=9HKKIP" class="btn" target="_blank" rel="noopener">Tham gia ngay</a>
-        <a class="btn secondary" id="joinGroup">Nhóm Telegram</a>
-        <a class="btn secondary" id="contactCS">Liên hệ CSKH</a>
+      <div class="actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Đổi giao diện"><span class="icon">🌙</span><span class="label">Chủ đề</span></button>
+        <a href="https://www.nodeshort.com/h5/#/?code=9HKKIP" class="btn" target="_blank" rel="noopener"><span class="icon">▶</span><span class="label">Tham gia ngay</span></a>
+        <a class="btn secondary" id="joinGroup"><span class="icon">✈️</span><span class="label">Nhóm Telegram</span></a>
+        <a class="btn secondary" id="contactCS"><span class="icon">💬</span><span class="label">Liên hệ CSKH</span></a>
       </div>
     </div>
   </header>
@@ -108,22 +124,22 @@
       <div class="container hero-grid">
         <div>
           <span class="tag">Sự kiện mới</span>
-          <h1>🎬 Mời bạn bè xem phim, nạp điện thoại miễn phí</h1>
-          <p class="lead">Trong thời gian sự kiện: mời bạn bè đăng ký & đăng nhập NodeShort, xem phim ngắn, tự động tích lũy Xu và DP; xem càng nhiều, thưởng càng lớn!</p>
+          <h1>🎬 Mời bạn bè xem phim, nạp thoại miễn phí</h1>
+          <p class="lead">Trong thời gian sự kiện, mời bạn bè đăng ký & đăng nhập NodeShort; xem phim, tự động tích Xu & DP; xem càng nhiều, quà càng lớn.</p>
           <div class="stats">
             <div class="stat"><b>1K Xu</b><div class="muted">= 1K VND</div></div>
-            <div class="stat"><b>Bắt đầu 10K</b><div class="muted">Không giới hạn</div></div>
-            <div class="stat"><b>21/10 - 31/10</b><div class="muted">Năm 2025</div></div>
+            <div class="stat"><b>10K trở lên</b><div class="muted">Không giới hạn trần</div></div>
+            <div class="stat"><b>21/10 – 31/10</b><div class="muted">Năm 2025</div></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr;gap:12px;max-width:300px">
-            <a id="cta" class="btn" href="https://www.nodeshort.com/h5/#/?code=9HKKIP" target="_blank" rel="noopener">Xem ngay · Watch to Earn</a>
+            <a id="cta" class="btn" href="https://www.nodeshort.com/h5/#/?code=9HKKIP" target="_blank" rel="noopener">Bắt đầu ngay · Watch to Earn</a>
           </div>
           <div class="hr"></div>
           <div class="card" style="padding:14px;display:flex;align-items:center;gap:12px">
             <img src="./assets/nodeshort-vietnam-badge-256.png" alt="Huy hiệu NFT Việt Nam" loading="lazy" decoding="async" style="width:56px;height:56px">
             <div>
               <div><strong>Huy hiệu NFT Việt Nam</strong></div>
-              <div class="muted">Chứng nhận danh tính giới hạn, tăng hệ số giải phóng DP, mở khóa quyền lợi.</div>
+              <div class="muted">Danh tính giới hạn, tăng hệ số nhả DP, mở đặc quyền.</div>
             </div>
           </div>
         </div>
@@ -132,8 +148,8 @@
           <div class="carousel" id="carousel">
             <div class="slides">
               <img src="./assets/nodeshort-app-home-768.png" alt="Giao diện Trang chủ" loading="lazy" decoding="async">
-              <img src="./assets/nodeshort-app-player-768.png" alt="Giao diện Phim" loading="lazy" decoding="async">
-              <img src="./assets/nodeshort-app-toplist-768.png" alt="Giao diện Bảng xếp hạng" loading="lazy" decoding="async">
+              <img src="./assets/nodeshort-app-player-768.png" alt="Giao diện Trình phát" loading="lazy" decoding="async">
+              <img src="./assets/nodeshort-app-toplist-768.png" alt="Bảng xếp hạng" loading="lazy" decoding="async">
             </div>
             <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
           </div>
@@ -141,19 +157,19 @@
       </div>
     </section>
 
-    <!-- Cách tham gia -->
+    <!-- How -->
     <section class="section" id="how">
       <div class="container">
         <h2>Cách tham gia</h2>
         <div class="grid-3">
-          <div class="card" style="padding:18px"><h3>1</h3><p class="muted">Mời bạn bè đăng ký và đăng nhập NodeShort.</p></div>
+          <div class="card" style="padding:18px"><h3>1</h3><p class="muted">Mời bạn bè đăng ký & đăng nhập NodeShort.</p></div>
           <div class="card" style="padding:18px"><h3>2</h3><p class="muted">Xem phim ≥ 15 phút mỗi ngày, tự động tích Xu & DP.</p></div>
           <div class="card" style="padding:18px"><h3>3</h3><p class="muted">Trong ngày sự kiện, liên hệ CSKH để đổi thẻ nạp điện thoại.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Hệ tiền tệ -->
+    <!-- Tokens -->
     <section class="section" id="token">
       <div class="container">
         <h2>Hệ tiền tệ của nền tảng</h2>
@@ -162,7 +178,7 @@
             <div class="token"><img src="./assets/nodeshort-coin-256.png" alt="Xu"><div><b>Xu (GDC)</b><div class="muted">Xem phim, điểm danh, nhiệm vụ; dùng để mở khóa tập & quay thưởng.</div></div></div>
           </div>
           <div class="card" style="padding:16px">
-            <div class="token"><img src="./assets/nodeshort-diamond-256.png" alt="Kim Cương"><div><b>Kim Cương (NDC)</b><div class="muted">Neo theo USD với tỷ lệ 1:1, mua NFT, mở VIP</div></div></div>
+            <div class="token"><img src="./assets/nodeshort-diamond-256.png" alt="Kim Cương"><div><b>Kim Cương (NDC)</b><div class="muted">Neo theo USD với tỷ lệ 1:1, mua NFT, mở VIP.</div></div></div>
           </div>
           <div class="card" style="padding:16px">
             <div class="token"><img src="./assets/nodeshort-dp-coin-256.png" alt="DP"><div><b>DP Coin (Drama Point)</b><div class="muted">Gắn với RWA, chia sẻ lợi nhuận & mua lại/ đốt. Giá trị cốt lõi hệ sinh thái.</div></div></div>
@@ -171,19 +187,19 @@
       </div>
     </section>
 
-    <!-- Phần thưởng -->
+    <!-- Rewards -->
     <section class="section" id="rewards">
       <div class="container">
         <h2>Phần thưởng & Quy đổi</h2>
         <div class="grid-3">
           <div class="card" style="padding:16px"><h3>💰 1K Xu = 1K VND</h3><p class="muted">Đổi từ 10K trở lên; không giới hạn trần.</p></div>
           <div class="card" style="padding:16px"><h3>🎁 Nhận thưởng miễn phí</h3><p class="muted">Liên hệ CSKH trong thời gian sự kiện để nhận thẻ nạp điện thoại.</p></div>
-          <div class="card" style="padding:16px"><h3>👥 Mời bạn tăng tốc</h3><p class="muted">Hoàn thành nhiệm vụ mời bạn để có suất quy đổi trong ngày.</p></div>
+          <div class="card" style="padding:16px"><h3>👥 Mời bạn tăng tốc</h3><p class="muted">Hoàn thành nhiệm vụ mỗi bạn để có suất quy đổi trong ngày.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Quy tắc -->
+    <!-- Rules -->
     <section class="section" id="rules">
       <div class="container">
         <h2>Quy tắc sự kiện</h2>
@@ -192,7 +208,7 @@
           <li><span class="idx">2</span><span>Thời gian: 21/10/2025 – 31/10/2025.</span></li>
           <li><span class="idx">3</span><span>Điều kiện: Trong ngày mời bạn bè đăng ký & đăng nhập NodeShort.</span></li>
           <li><span class="idx">4</span><span>Mỗi tài khoản chỉ tham gia 1 lần/ngày.</span></li>
-          <li><span class="idx">5</span><span>Hệ thống giám sát hành vi bất thường (SĐT ảo, đăng ký hàng loạt, tool auto, sửa thông tin thiết bị...).</span></li>
+          <li><span class="idx">5</span><span>Hệ thống giám sát hành vi bất thường (SĐT ảo, đăng ký hàng loạt, tool auto, sửa thông tin thiết bị…).</span></li>
           <li><span class="idx">6</span><span>Nếu phát hiện hành vi gian lận/trục lợi: Huỷ tư cách nhận thưởng ngay.</span></li>
           <li><span class="idx">7</span><span>Nền tảng giữ quyền giải thích cuối cùng & xử lý khóa tài khoản khi cần.</span></li>
         </ul>
@@ -221,25 +237,28 @@
   </footer>
 
   <script>
-    // Theme toggle
+    // theme
     const root=document.documentElement; const key='ns_theme';
     const setTheme=t=>{root.setAttribute('data-theme',t);localStorage.setItem(key,t)};
     setTheme(localStorage.getItem(key)||'dark');
     document.getElementById('themeToggle').addEventListener('click',()=>{
       setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
     });
+    // shrink on scroll
+    const hdr=document.querySelector('header');
+    window.addEventListener('scroll',()=>hdr.classList.toggle('shrink',window.scrollY>40),{passive:true});
 
-    // Carousel (one per view)
+    // carousel
     const carousel=document.getElementById('carousel');
     const slides=carousel.querySelector('.slides');
     const dots=[...carousel.querySelectorAll('.dot')];
     let idx=0; const go=i=>{idx=i%3; if(idx<0) idx+=3; slides.style.transform=`translateX(-${idx*100}%)`; dots.forEach((d,k)=>d.classList.toggle('active',k===idx))};
     setInterval(()=>go(idx+1),3500);
 
-    // Prevent auto jump to top by hash
+    // avoid jump-to-top because of hash
     window.addEventListener('scroll',()=>{try{history.replaceState(null,'',' ')}catch(e){}},{passive:true});
 
-    // Hidden links click-to-open
+    // hidden links -> click to jump
     const openNew=url=>window.open(url,'_blank');
     document.getElementById('joinGroup').onclick=()=>openNew('https://t.me/NodeShortVN');
     document.getElementById('contactCS').onclick=()=>openNew('https://t.me/NodeShort001');
