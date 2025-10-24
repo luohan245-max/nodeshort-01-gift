@@ -5,12 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0b0c" />
   <title>NodeShort｜Mời bạn bè xem phim, nạp thoại miễn phí</title>
-  <meta name="description" content="Sự kiện Web: Mời bạn bè xem phim, tích Xu/DP, đổi thẻ nạp điện thoại. Tối ưu cho quảng cáo Facebook." />
+  <meta name="description" content="Sự kiện Web: Mời bạn bè xem phim, tích Xu/DP, đổi thẻ nạp điện thoại." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NodeShort｜Mời bạn bè xem phim, nạp thoại miễn phí" />
   <meta property="og:description" content="Xem phim, tích Xu/DP, nhận quà; giải trí cũng là đầu tư." />
   <meta property="og:image" content="./assets/nodeshort-og-1200x630.png" />
   <meta property="og:url" content="https://www.nodeshort.com/h5/#/?code=9HKKIP" />
+
+  <!-- Meta Pixel Code (active) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '855402777027838');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=855402777027838&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root{--bg:#0b0b0c;--card:#131316;--muted:#a6a8ad;--text:#f3f4f6;--gold:#efb21a;--accent:#e9a700;--brand:#ffd36b;--line:#212227;--shadow:0 10px 30px rgba(0,0,0,.35);--btn-fg:#1a1a1a}
@@ -19,6 +36,7 @@
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"PingFang SC","Microsoft Yahei",sans-serif;line-height:1.55;overflow-x:hidden}
     img{display:block;max-width:100%}
     a{color:inherit;text-decoration:none;cursor:pointer}
+    .muted{color:var(--muted)}
     .container{width:min(1120px,100%);margin-inline:auto;padding:0 16px}
 
     /* Header */
@@ -125,7 +143,7 @@
               <img src="./assets/nodeshort-app-player-768.png" alt="Giao diện Trình phát" loading="lazy" decoding="async">
               <img src="./assets/nodeshort-app-toplist-768.png" alt="Bảng xếp hạng" loading="lazy" decoding="async">
             </div>
-            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="dots" aria-label="Slider pagination"><span class="dot active" role="button" tabindex="0" aria-label="Slide 1"></span><span class="dot" role="button" tabindex="0" aria-label="Slide 2"></span><span class="dot" role="button" tabindex="0" aria-label="Slide 3"></span></div>
           </div>
         </div>
       </div>
@@ -214,9 +232,9 @@
     // theme toggle
     const root=document.documentElement;
     const key='ns_theme';
-    const setTheme=t=>{root.setAttribute('data-theme',t);localStorage.setItem(key,t)};
-    setTheme(localStorage.getItem(key)||'dark');
-    document.getElementById('themeToggle').addEventListener('click',()=>{
+    const setTheme=t=>{root.setAttribute('data-theme',t);try{localStorage.setItem(key,t)}catch(e){}};
+    setTheme((()=>{try{return localStorage.getItem(key)||'dark'}catch(e){return 'dark'}})());
+    document.getElementById('themeToggle')?.addEventListener('click',()=>{
       setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
     });
 
@@ -229,17 +247,25 @@
     if(carousel){
       const slides=carousel.querySelector('.slides');
       const dots=[...carousel.querySelectorAll('.dot')];
-      let idx=0;
+      let idx=0; let timer=null;
       const go=i=>{
         const total=slides.children.length;
         idx=((i%total)+total)%total;
         slides.style.transform = `translateX(-${idx*100}%)`;
         dots.forEach((d,k)=>d.classList.toggle('active',k===idx));
       };
-      setInterval(()=>go(idx+1),3500);
+      const autoplay=()=>{
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        clearInterval(timer); timer=setInterval(()=>go(idx+1),3500);
+      };
+      dots.forEach((d,k)=>{
+        d.addEventListener('click',()=>{go(k);autoplay();});
+        d.addEventListener('keydown',(e)=>{if(e.key==='Enter' || e.key===' '){go(k);autoplay();}});
+      });
+      autoplay();
     }
 
-    // prevent hash jump when reaching footer
+    // prevent hash jump when reaching footer (safe no-op in preview)
     window.addEventListener('scroll',()=>{try{history.replaceState(null,'',' ')}catch(e){}},{passive:true});
 
     // hidden links
